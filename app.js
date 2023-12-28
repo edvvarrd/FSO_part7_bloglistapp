@@ -3,8 +3,6 @@ const app = express()
 const mongoose = require('mongoose')
 const cors = require('cors')
 
-app.use(express.static('dist'))
-
 require('express-async-errors')
 const blogsRouter = require('./controllers/blogs')
 const usersRouter = require('./controllers/users')
@@ -37,6 +35,11 @@ app.use(middleware.requestLogger)
 app.use('/api/blogs', middleware.tokenExtractor, blogsRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
+
+app.use(express.static('dist'))
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, 'dist', 'index.html'))
+})
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
