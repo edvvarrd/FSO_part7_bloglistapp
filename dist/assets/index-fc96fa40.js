@@ -148,6 +148,7 @@ Error generating stack: `+s.message+`
 	border-radius: 5px;
 	box-shadow: 0 0 2px 2px #caf0f8;
 	font-size: 1.8rem;
+	z-index: 100;
 `,Ey=()=>{const e=UA();return e?k.jsx(x2,{children:k.jsx("p",{children:e})}):null},S2=$(hf)`
 	display: flex;
 	flex-direction: row;
